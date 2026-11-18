@@ -1,47 +1,19 @@
-# DevOps Learning Journey
+# Albi Lubila | DevOps & Cloud Portfolio
 
-This repository documents my hands-on journey to becoming a DevOps Engineer.
+I’m a computer science student in Kraków with a background in technical support. My hands-on projects cover containerizing a multi-service application with Docker and deploying a web application across two AWS Availability Zones.
 
-The goal of this repository is to learn DevOps tools by building practical labs and mini-projects while studying technologies used in modern infrastructure and cloud environments.
+## DataPulse — Multi-service Docker lab
 
-Each folder contains practical exercises, scripts and configurations used to understand real-world DevOps workflows.
+I containerized a static frontend served by Nginx, a FastAPI backend, and a PostgreSQL 15 database. Docker Compose starts the API after PostgreSQL passes its health check. A named volume preserves database data, and a local `.env` file supplies the database password at runtime.
 
-## Tech Stack Covered
+The project guide includes setup instructions and endpoints for checking API health and API-to-database connectivity.
 
-* Linux administration
-* Python for DevOps automation
-* Docker & containerization
-* Kubernetes orchestration
-* Infrastructure as Code with Terraform
-* CI/CD pipelines (Jenkins / GitHub Actions)
-* Monitoring with Prometheus & Grafana
+[Read the DataPulse project guide](docker/datapulse-devops-starter/README.md) · [View the Compose configuration](docker/datapulse-devops-starter/docker-compose.yml)
 
-## Repository Structure
+## MyClothes — Multi-AZ AWS infrastructure lab
 
-```
-devops-learning-journey
-├── linux
-├── python
-├── docker
-├── terraform
-├── kubernetes
-├── cicd
-└── monitoring
-```
+I deployed a web application across two Availability Zones. A public Application Load Balancer routes traffic to EC2 instances in private subnets, managed by an Auto Scaling group. The application uses an Amazon RDS for PostgreSQL Multi-AZ deployment.
 
-Each directory contains hands-on labs focused on a specific DevOps technology.
+The EC2 bootstrap script retrieves database credentials from AWS Secrets Manager using an IAM role scoped to the database secret. The project documents seven-day backup retention, point-in-time recovery, and deletion protection.
 
-## Goals
-
-* Learn DevOps tools through hands-on practice
-* Build automation scripts and infrastructure code
-* Understand cloud infrastructure workflows
-* Develop a portfolio demonstrating DevOps skills
-
-## Progress
-
-This repository will grow as I continue learning and building new projects during my DevOps journey.
-
----
-
-DevOps learning in progress 🚀
+[View the architecture and deployment screenshots](https://github.com/AlLubila/aws-myclothes-infrastructure#deployment-evidence) · [View the bootstrap script](https://github.com/AlLubila/aws-myclothes-infrastructure/blob/main/scripts/user-data.sh) · [View the IAM policy](https://github.com/AlLubila/aws-myclothes-infrastructure/blob/main/policies/iam_policy.json)
